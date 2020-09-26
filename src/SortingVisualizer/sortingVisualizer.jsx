@@ -260,7 +260,7 @@ export default class SortingVisualiser extends React.Component {
                             key = {shortid.generate()}
                             style = {{
                                 height: `${value*((0.7 * imgHeight)/this.MAX_ARR_VAL)}px`, // account for other ui taking window space
-                                width: `${((0.8*imgWidth-2*(arrayLength-1))/arrayLength)}px`, // account for margins 
+                                width: `${((0.8*imgWidth-2*(arrayLength-1)-100)/arrayLength)}px`, // account for margins 
                                 backgroundColor: 'blue'
                             }}                                             
                         ></div>
