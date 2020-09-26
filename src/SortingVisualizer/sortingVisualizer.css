@@ -1,0 +1,87 @@
+
+.btn {
+    color: rgb(255, 255, 255); 
+    background: transparent; 
+    border: none;
+    font-size: 20px;
+}
+
+.btn:hover {
+    color: #15bd3f;
+}
+
+.buttonContainer {
+    background: #000000;
+    position: fixed;
+    height: 10%;
+    top: 0%;
+    width: 100%;
+}
+.array-container {
+    position: fixed;
+    left: 10%;
+    bottom: 10%;
+}
+
+.array-bar {
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.leftButtonContainer {
+    background: #000000;
+    position: fixed;
+    width: 33%;
+    bottom: 0%;
+    left: 0%;
+    height: 10%;
+}
+
+.midSlideContainer {
+    background: #000000;
+    position: fixed;
+    width: 33%;
+    bottom: 0%;
+    left: 33%;
+    height: 10%;
+}
+
+.rightSlideContainer {
+    background: #000000;
+    position: fixed;
+    width: 34%;
+    bottom: 0%;
+    left: 66%;
+    height: 10%;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 1px;
+    background: #ffffff;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 25px;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
