@@ -98,6 +98,9 @@ export function insertionSort(array) {
 export function quickSort(array) {
     const animations = [];
     quickSortHelper(animations, array, 0, array.length-1);
+    const animation = {};
+    animation.sorted = 1;
+    animations.push(animation);
     return animations;
 }
 

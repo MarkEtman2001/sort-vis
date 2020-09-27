@@ -73,17 +73,20 @@ export default class SortingVisualiser extends React.Component {
     }
 
     animate(animations, ANIMATION_SPEED) {
+
+        // disable all actions until sorting complete
         this.disabled = true;
         setTimeout(() => {
             this.disabled = false;
         }, animations.length * ANIMATION_SPEED)
+
         // creates an array of insides of all divs with array-bar tag
         const arrayBars = document.getElementsByClassName('array-bar'); 
         // Step through animations
         for (let i = 0; i < animations.length; i++) {
             const {comparison, swap, sorted} = animations[i];
 
-            
+            // highlight array green when sorted
             if (sorted !== undefined) {
                 for (let j = 0; j < arrayBars.length; j++) {
                     setTimeout(() => {
@@ -93,7 +96,6 @@ export default class SortingVisualiser extends React.Component {
                 break;
             }
             
-
             // highlight elements being compared in red
             setTimeout(() => {
                 arrayBars[comparison[1]].style.backgroundColor = 'red';
@@ -137,48 +139,69 @@ export default class SortingVisualiser extends React.Component {
 
     // Animate the quick sort method 
     quickSort() {
-        const ANIMATION_SPEED = this.state.animationSpeed;
-        const animations = sortingAlgos.quickSort(this.state.array);
-        // creates an array of insides of all divs with array-bar tag
-        const arrayBars = document.getElementsByClassName('array-bar'); 
-        
-        // Step through animations
-        for (let i = 0; i < animations.length; i++) {
-            const {comparison, swap, secondCompare} = animations[i];
+        // eslint-disable-next-line
+        if (this.disabled == false) {
 
-            // check for undefined animation (every animation with a swap must have a comparison)
-            if (comparison === undefined) {
-                continue;
-            }
+            const ANIMATION_SPEED = this.state.animationSpeed;
+            const animations = sortingAlgos.quickSort(this.state.array);
+            // creates an array of insides of all divs with array-bar tag
+            const arrayBars = document.getElementsByClassName('array-bar'); 
 
-            // highlight elements being compared in red
+            // disable all actions until sorting complete
+            this.disabled = true;
             setTimeout(() => {
-                arrayBars[comparison[1]].style.backgroundColor = 'green';
-                arrayBars[comparison[0]].style.backgroundColor = 'red';
-                if (secondCompare !== undefined) {
-                    arrayBars[secondCompare].style.backgroundColor = 'red';
-                }
-                
-            }, i * ANIMATION_SPEED)
+                this.disabled = false;
+            }, animations.length * ANIMATION_SPEED)
 
-            // If there is a swap, swap the height of the two bars
-            if (swap !== undefined) {
-                setTimeout(() => {
-                    const temp = arrayBars[swap[0]].style.height;
-                    arrayBars[swap[0]].style.height = arrayBars[swap[1]].style.height;
-                    arrayBars[swap[1]].style.height = temp;
-                }, i * ANIMATION_SPEED)
-            }
-            // Once the comparison has been made, return the elements' colour to blue
-            setTimeout(() => {   
-                arrayBars[comparison[1]].style.backgroundColor = 'blue';
-                arrayBars[comparison[0]].style.backgroundColor = 'blue';
-                if (secondCompare !== undefined) {
-                    arrayBars[secondCompare].style.backgroundColor = 'blue';
+            
+            // Step through animations
+            for (let i = 0; i < animations.length; i++) {
+                const {comparison, swap, secondCompare, sorted} = animations[i];
+                
+                // highlight array green when sorted
+                if (sorted !== undefined) {
+                    for (let j = 0; j < arrayBars.length; j++) {
+                        setTimeout(() => {
+                            arrayBars[j].style.backgroundColor = 'green';
+                        }, (i+j) * ANIMATION_SPEED)
+                    }
+                    break;
                 }
-            }, (i+1) * ANIMATION_SPEED)     
+
+
+                // check for undefined animation (every animation with a swap must have a comparison)
+                if (comparison === undefined) {
+                    continue;
+                }
+
+                // highlight elements being compared in red
+                setTimeout(() => {
+                    arrayBars[comparison[1]].style.backgroundColor = 'lime';
+                    arrayBars[comparison[0]].style.backgroundColor = 'red';
+                    if (secondCompare !== undefined) {
+                        arrayBars[secondCompare].style.backgroundColor = 'red';
+                    }
+                    
+                }, i * ANIMATION_SPEED)
+
+                // If there is a swap, swap the height of the two bars
+                if (swap !== undefined) {
+                    setTimeout(() => {
+                        const temp = arrayBars[swap[0]].style.height;
+                        arrayBars[swap[0]].style.height = arrayBars[swap[1]].style.height;
+                        arrayBars[swap[1]].style.height = temp;
+                    }, i * ANIMATION_SPEED)
+                }
+                // Once the comparison has been made, return the elements' colour to blue
+                setTimeout(() => {   
+                    arrayBars[comparison[1]].style.backgroundColor = 'blue';
+                    arrayBars[comparison[0]].style.backgroundColor = 'blue';
+                    if (secondCompare !== undefined) {
+                        arrayBars[secondCompare].style.backgroundColor = 'blue';
+                    }
+                }, (i+1) * ANIMATION_SPEED)     
+            }
         }
-        // this.animate(sortingAlgos.quickSort(this.state.array, 0, this.state.array.length-1), 50);
     }
 
     mergeSort() {
