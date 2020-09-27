@@ -3,7 +3,7 @@
     color: rgb(255, 255, 255); 
     background: transparent; 
     border: none;
-    font-size: 200%;
+    font-size: 4vh
 }
 
 .btn:hover {
@@ -16,6 +16,7 @@
     height: 10%;
     top: 0%;
     width: 100%;
+    display: center;
 }
 .array-container {
     position: fixed;
@@ -35,6 +36,7 @@
     bottom: 0%;
     left: 0%;
     height: 10%;
+    display: grid;
 }
 
 .midSlideContainer {
@@ -44,6 +46,7 @@
     bottom: 0%;
     left: 33%;
     height: 10%;
+    
 }
 
 .rightSlideContainer {
@@ -74,7 +77,7 @@
     -webkit-appearance: none;
     appearance: none;
     width: 5px;
-    height: 25px;
+    height: 3vh;
     background: rgb(255, 255, 255);
     cursor: pointer;
 }

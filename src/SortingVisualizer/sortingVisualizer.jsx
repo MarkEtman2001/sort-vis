@@ -282,12 +282,12 @@ export default class SortingVisualiser extends React.Component {
                 </div>
 
                 <div className="rightSlideContainer">
-                    <body style={{color: "white", fontSize: "150%"}}>Animation Speed</body>
+                    <body style={{color: "white", fontSize: "3vh"}}>Animation Speed</body>
                     <input type="range" min="1" max="100" className="slider" id="animationSpeed" onChange={() => this.refresh()}/>
                 </div>
 
                 <div className="midSlideContainer">
-                    <body style={{color: "white", fontSize: "150%"}}>Array Length: {this.state.arrayLength}</body>
+                    <body style={{color: "white", fontSize: "3vh"}}>Array Length: {this.state.arrayLength}</body>
                     <input type="range" min="1" max="200" className="slider" id="arrayLength" onChange={() => this.refresh()}/>
                 </div>
             </div>
