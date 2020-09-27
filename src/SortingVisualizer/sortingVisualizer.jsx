@@ -74,14 +74,15 @@ export default class SortingVisualiser extends React.Component {
 
     animate(animations, ANIMATION_SPEED) {
 
+        // creates an array of all "array-bar" objects
+        const arrayBars = document.getElementsByClassName('array-bar'); 
+
         // disable all actions until sorting complete
         this.disabled = true;
         setTimeout(() => {
             this.disabled = false;
-        }, animations.length * ANIMATION_SPEED)
+        }, (animations.length + arrayBars.length) * ANIMATION_SPEED)
 
-        // creates an array of insides of all divs with array-bar tag
-        const arrayBars = document.getElementsByClassName('array-bar'); 
         // Step through animations
         for (let i = 0; i < animations.length; i++) {
             const {comparison, swap, sorted} = animations[i];
@@ -144,14 +145,14 @@ export default class SortingVisualiser extends React.Component {
 
             const ANIMATION_SPEED = this.state.animationSpeed;
             const animations = sortingAlgos.quickSort(this.state.array);
-            // creates an array of insides of all divs with array-bar tag
+            // creates an array of all "array-bar" objects
             const arrayBars = document.getElementsByClassName('array-bar'); 
 
             // disable all actions until sorting complete
             this.disabled = true;
             setTimeout(() => {
                 this.disabled = false;
-            }, animations.length * ANIMATION_SPEED)
+            }, (animations.length + arrayBars.length) * ANIMATION_SPEED)
 
             
             // Step through animations
