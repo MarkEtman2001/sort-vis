@@ -1,5 +1,5 @@
 {
-  "homepage": "https://MarkEtman2001.github.io/sort-vis",
+  "homepage": "https://marketman2001.github.io/sort-vis",
   "name": "sort-vis",
   "version": "0.1.0",
   "private": true,
@@ -11,7 +11,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "shortid": "^2.2.15",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "yarn": "^1.22.5"
   },
   "scripts": {
     "predeploy": "npm run build",
