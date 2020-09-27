@@ -3,7 +3,7 @@
     color: rgb(255, 255, 255); 
     background: transparent; 
     border: none;
-    font-size: large;
+    font-size: 200%;
 }
 
 .btn:hover {

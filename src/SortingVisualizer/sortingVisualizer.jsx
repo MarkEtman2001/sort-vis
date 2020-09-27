@@ -268,7 +268,7 @@ export default class SortingVisualiser extends React.Component {
                 </div>
 
                 <div className="buttonContainer">
-                    <body style={{color: "white", fontSize: "medium"}}>Sorting Methods:</body>
+                    <body style={{color: "white", fontSize: "150%"}}>Sorting Methods:</body>
                     <button className="btn" onClick={() => this.bubbleSort()}>Bubble</button>
                     <button className="btn" onClick={() => this.cocktailSort()}>Cocktail</button>
                     <button className="btn" onClick={() => this.insertionSort()}>Insertion</button>
@@ -282,12 +282,12 @@ export default class SortingVisualiser extends React.Component {
                 </div>
 
                 <div className="rightSlideContainer">
-                    <body style={{color: "white", fontSize: "medium"}}>Animation Speed</body>
+                    <body style={{color: "white", fontSize: "150%"}}>Animation Speed</body>
                     <input type="range" min="1" max="100" className="slider" id="animationSpeed" onChange={() => this.refresh()}/>
                 </div>
 
                 <div className="midSlideContainer">
-                    <body style={{color: "white", fontSize: "medium"}}>Array Length: {this.state.arrayLength}</body>
+                    <body style={{color: "white", fontSize: "150%"}}>Array Length: {this.state.arrayLength}</body>
                     <input type="range" min="1" max="200" className="slider" id="arrayLength" onChange={() => this.refresh()}/>
                 </div>
             </div>
