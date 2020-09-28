@@ -44,8 +44,8 @@ export default class SortingVisualiser extends React.Component {
                 }
             }
             // eslint-disable-next-line
-            if (prevState.animationSpeed != document.getElementById("animationSpeed").value) {
-                this.setState({animationSpeed: document.getElementById("animationSpeed").value})
+            if ((100 - prevState.animationSpeed) != document.getElementById("animationSpeed").value) {
+                this.setState({animationSpeed: (100 - document.getElementById("animationSpeed").value)})
             }
         }
     }
@@ -307,7 +307,7 @@ export default class SortingVisualiser extends React.Component {
 
                 <div className="rightSlideContainer">
                     <body style={{color: "white", fontSize: "3vh"}}>Animation Speed</body>
-                    <input type="range" min="1" max="100" className="slider" id="animationSpeed" onChange={() => this.refresh()}/>
+                    <input type="range" min="1" max="99" className="slider" id="animationSpeed" onChange={() => this.refresh()}/>
                 </div>
 
                 <div className="midSlideContainer">
