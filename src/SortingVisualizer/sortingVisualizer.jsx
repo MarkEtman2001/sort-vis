@@ -36,12 +36,10 @@ export default class SortingVisualiser extends React.Component {
             // If the array length slider has been moved, update 
             // eslint-disable-next-line
             if (prevState.arrayLength != document.getElementById("arrayLength").value) {
-                this.setState({arrayLength: document.getElementById("arrayLength").value})
-                // only make array once state is updated  
-                // eslint-disable-next-line
-                if (this.state.arrayLength == document.getElementById("arrayLength").value) {
+                // only make array once state is updated
+                this.setState({arrayLength: document.getElementById("arrayLength").value}, () => {
                     this.makeArray();
-                }
+                })
             }
             // eslint-disable-next-line
             if ((100 - prevState.animationSpeed) != document.getElementById("animationSpeed").value) {
@@ -66,7 +64,6 @@ export default class SortingVisualiser extends React.Component {
                 arr.push(this.getRangedRandNum());
             }
             // Updates the state of the component with the new array
-            // {} used as 'arr' is an object 
             this.setState({array: arr});
         }
         
