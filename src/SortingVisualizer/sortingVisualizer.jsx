@@ -2,7 +2,6 @@ import React from './../../node_modules/react';
 import './sortingVisualizer.css';
 import  * as sortingAlgos from '../sortingAlgos/sortingAlgos.js';
 
-
 export default class SortingVisualiser extends React.Component {
     // min/max value for an element in the array
     MIN_ARR_VAL = 10;
